@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI Agent Interaction</title>
+    </head>
+    <body>
+        <h1>Interact with AI Agent</h1>
+        <form id="aiForm">
+            <label for="inputText">Enter text:</label>
+            <input type="text" id="inputText" name="inputText" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+    
+        <script>
+            document.getElementById('aiForm').addEventListener('submit', async function(event) {
+                event.preventDefault();
+                const inputText = document.getElementById('inputText').value;
+                const response = await fetch('/deepseek', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: inputText })
+                });
+                const result = await response.json();
+                document.getElementById('result').innerText = result.result;
+            });
+        </script>
+    </body>
+    </html>
+</body>
+</html>

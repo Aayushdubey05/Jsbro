@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DOM Manipulation Example</title>
+    </head>
+    <body>
+        <h1>DOM Manipulation Example</h1>
+        <p id="text">This is the original text.</p>
+        <button id="changeTextButton">Change Text</button>
+        <button id="addElementButton">Add Element</button>
+        <button id="modifyAttributeButton">Modify Attribute</button>
+        <div id="container"></div>
+    
+        <script>
+            // Change text content
+            document.getElementById('changeTextButton').addEventListener('click', function() {
+                document.getElementById('text').textContent = 'The text has been changed!';
+            });
+    
+            // Add a new element
+            document.getElementById('addElementButton').addEventListener('click', function() {
+                const newElement = document.createElement('p');
+                newElement.textContent = 'This is a new paragraph added to the container.';
+                document.getElementById('container').appendChild(newElement);
+            });
+    
+            // Modify an attribute
+            document.getElementById('modifyAttributeButton').addEventListener('click', function() {
+                const textElement = document.getElementById('text');
+                textElement.style.color = 'blue';
+                textElement.setAttribute('title', 'This is a tooltip');
+            });
+        </script>
+    </body>
+    </html>
+</body>
+</html>
